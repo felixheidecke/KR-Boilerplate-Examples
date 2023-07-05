@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { module } from '../config'
-	import { CART } from '../_stores'
+	import { CART } from '../stores'
 
 	import type { ShopProduct } from '$lib/boilerplate/libraries/xioni-shop/products.types'
 
@@ -9,17 +8,19 @@
 	import Client from '$lib/boilerplate/components/Client/Client.svelte'
 	import Link from '$lib/boilerplate/components/Link/Link.svelte'
 	import XioniShopProduct from '$lib/boilerplate/components/XioniShopProduct/XioniShopProduct.svelte'
-	import MakeShopCart from '$lib/boilerplate/libraries/xioni-shop/cart'
+	import ShopCart from '$lib/boilerplate/libraries/xioni-shop/cart'
 
 	// --- [ Props ] ---------------------------------------------------------------------------------
 
 	export let data
+
 	const product: ShopProduct | undefined = data.product
+	const module: number = data.module
 
 	let cartErrors: any
 
 	async function addToCart(id: number) {
-		const { addItem } = MakeShopCart(module)
+		const { addItem } = ShopCart(module)
 		const { success, data } = await addItem(id)
 
 		if (success) {

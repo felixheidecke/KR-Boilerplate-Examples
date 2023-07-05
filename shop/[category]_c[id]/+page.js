@@ -1,16 +1,22 @@
 import MakeShopCategories from '$lib/boilerplate/libraries/xioni-shop/categories'
 import MakeShopProducts from '$lib/boilerplate/libraries/xioni-shop/products'
-import sessionStorage from '$lib/boilerplate/utils/session-storage'
-import { module } from '../config'
+import { error as svelteError } from '@sveltejs/kit'
 
-const { getCategory } = MakeShopCategories(module)
-const { getProductsByCategory } = MakeShopProducts(module)
+export const load = async function ({ params, parent, fetch }) {
+	const { module } = await parent()
+	const { getCategory } = MakeShopCategories(module, fetch)
+	const { getProductsByCategory } = MakeShopProducts(module, fetch)
+	const [categoryError, category] = await getCategory(params.id)
 
-export const load = async function ({ params }) {
-	const store = sessionStorage(`__kr-xioni/s:${module}/c-cp:${params.id}`)
-	const [category, products] =
-		store.read() ||
-		store.write(await Promise.all([getCategory(params.id), getProductsByCategory(params.id)]))
+	if (categoryError) {
+		throw svelteError(categoryError.statusCode, categoryError.message)
+	}
+
+	const [productsError, products] = await getProductsByCategory(params.id)
+
+	if (productsError) {
+		throw svelteError(productsError.statusCode, productsError.message)
+	}
 
 	return {
 		category,

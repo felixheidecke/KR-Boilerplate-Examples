@@ -1,8 +1,7 @@
 <script>
-	import { goto } from '$app/navigation'
-	import { INVOICE_ADDRESS, CART } from '../../_stores'
+	import { ADDRESS, CART } from '../../stores'
 
-	const address = { ...$INVOICE_ADDRESS }
+	const address = { ...$ADDRESS }
 </script>
 
 <h1 class="h2">Zusammenfassung</h1>

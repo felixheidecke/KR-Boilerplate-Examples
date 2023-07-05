@@ -1,57 +1,61 @@
 <script>
-	import '$lib/boilerplate/components/XioniEventTile/XioniEventTile.scss'
-
 	const { events } = $$props.data
 </script>
 
 <h1>Events <i>(Expanded)</i></h1>
 
 <Client browser>
-	<ol class="$flex $flex-column $gap">
+	<ol>
 		{#each events as event}
-			<li class="XioniEventTile">
+			<li>
 				{#if event.image}
-					<img
-						class="XioniEventTile__image"
-						src={event.image.thumbSrc}
-						alt={event.image.alt}
-						loading="lazy" />
+					<img src={event.image.thumbSrc} alt={event.image.alt} loading="lazy" />
 				{/if}
 
-				<h2 class="XioniEventTile__title">
+				<h2>
 					{event.title}
 				</h2>
 
-				<h3 class="XioniEventTile__date">
+				<h3>
 					{event.duration}
 				</h3>
 
-				<div class="XioniEventTile__description">
+				{#if event.description}
 					{@html event.description}
-				</div>
+				{/if}
 
-				<div class="XioniEventTile__details">
+				{#if event.details}
 					{@html event.details}
-				</div>
+				{/if}
 
-				<div class="XioniEventTile__metadata">
+				<ul class="$flex $gap">
+					{#if event.organizer}
+						<li>
+							<Icon name="fas fa-user-circle" />
+							{event.organizer}
+						</li>
+					{/if}
 					{#if event.ticketshop}
-						<Link to={event.ticketshop.toString()} icon="fas fa-ticket-alt">Zum Ticketshop</Link>
+						<li>
+							<Link to={event.ticketshop.toString()} icon="fas fa-ticket-alt">Zum Ticketshop</Link>
+						</li>
 					{/if}
-
 					{#if event.website}
-						<Link to={event.website.toString()} icon="fas fa-globe" />
+						<li>
+							<Link to={event.website.toString()} icon="fas fa-globe" />
+						</li>
 					{/if}
-
 					{#if event.pdf}
-						<Link to={event.pdf.src} icon="fas fa-file-pdf">{event.pdf.title}</Link>
+						<li>
+							<Link to={event.pdf.src} icon="fas fa-file-pdf">{event.pdf.title}</Link>
+						</li>
 					{/if}
-				</div>
+				</ul>
 
 				{#if event.images}
 					<Grid gap class="$mt">
 						{#each event.images as { src, alt }}
-							<Grid size="tablet-1-5">
+							<Grid size="tablet-1-3 desktop-1-5">
 								<img {src} {alt} loading="lazy" />
 							</Grid>
 						{/each}

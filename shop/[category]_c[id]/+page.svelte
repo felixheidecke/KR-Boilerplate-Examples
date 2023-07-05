@@ -28,7 +28,7 @@
 
 	<Grid gap>
 		{#each products as product, index (product.id)}
-			<Grid size="1-3">
+			<Grid size="1-3" data-index={index}>
 				<Link class="$decoration-none" to="/shop/{product.slug}_p{product.id}">
 					<XioniShopProductTile {product} />
 				</Link>

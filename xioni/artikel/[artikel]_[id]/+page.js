@@ -1,16 +1,16 @@
-import XioniArticles from '$lib/boilerplate/libraries/xioni/articles'
-import { error } from '@sveltejs/kit'
+import Articles from '$lib/boilerplate/libraries/xioni/articles'
+import { error as svelteError } from '@sveltejs/kit'
 
 export const load = async ({ fetch, params }) => {
-	const { getArticle } = XioniArticles(fetch)
-	const { data, success } = await getArticle(params.id)
+	const { getArticle } = Articles(fetch)
+	const [error, article] = await getArticle(params.id)
 
-	if (!success) {
-		throw error(data.statusCode, data.message)
+	if (error) {
+		throw svelteError(error.statusCode, error.message)
 	}
 
 	return {
-		article: data
+		article
 	}
 }
 

@@ -1,16 +1,18 @@
-import MakeShopProducts from '$lib/boilerplate/libraries/xioni-shop/products'
-import sessionStorage from '$lib/boilerplate/utils/session-storage'
-import { module } from './config.js'
+import ShopProducts from '$lib/boilerplate/libraries/xioni-shop/products'
+import { error as svelteError } from '@sveltejs/kit'
 
-export const prerender = false
+export const load = async function ({ fetch, parent }) {
+	const { module } = await parent()
+	const { getProductHighlights } = ShopProducts(module, fetch)
+	const [error, products] = await getProductHighlights()
 
-export const load = async function ({ fetch }) {
-	const { getProductHighlights } = MakeShopProducts(module, fetch)
-
-	const store = sessionStorage('xioni:getProductHighlights(' + module + ')')
-	const products = store.read() || store.write(await getProductHighlights())
+	if (error) {
+		throw svelteError(error.statusCode, error.message)
+	}
 
 	return {
 		products
 	}
 }
+
+export const prerender = false

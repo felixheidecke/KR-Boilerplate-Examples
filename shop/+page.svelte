@@ -1,11 +1,16 @@
 <script lang="ts">
 	// --- [ Components ] ----------------------------------------------------------------------------
+
 	import Client from '$lib/boilerplate/components/Client/Client.svelte'
 	import Grid from '$lib/boilerplate/components/Grid/Grid.svelte'
 	import Link from '$lib/boilerplate/components/Link/Link.svelte'
 	import ShopProductTile from '$lib/boilerplate/components/XioniShopProductTile/XioniShopProductTile.svelte'
 
-	$: products = $$props.data.products
+	// --- [ Types ] ---------------------------------------------------------------------------------
+
+	import type { ShopProduct } from '$lib/boilerplate/libraries/xioni-shop/products.types'
+
+	const products: ShopProduct[] = $$props.data.products
 </script>
 
 <Client browser>

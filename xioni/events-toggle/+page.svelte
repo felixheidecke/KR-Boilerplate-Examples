@@ -28,14 +28,18 @@
 					{event.duration}
 				</h3>
 
-				<div class="XioniEventTile__description">
-					{@html event.description}
-				</div>
+				{#if event.description}
+					<div class="XioniEventTile__description">
+						{@html event.description}
+					</div>
+				{/if}
 
 				{#if expandedElement === event.id}
-					<div class="XioniEventTile__details">
-						{@html event.details}
-					</div>
+					{#if event.details}
+						<div class="XioniEventTile__details">
+							{@html event.details}
+						</div>
+					{/if}
 
 					<div class="XioniEventTile__metadata">
 						{#if event.ticketshop}

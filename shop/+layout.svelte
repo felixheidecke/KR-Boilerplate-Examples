@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { CART } from './_stores'
+	import { CART } from './stores'
 
 	// --- [ Components ] ----------------------------------------------------------------------------
 
@@ -8,15 +8,7 @@
 	import Grid from '$lib/boilerplate/components/Grid/Grid.svelte'
 	import Button from '$lib/boilerplate/components/Button/Button.svelte'
 
-	// --- [ Types ] ---------------------------------------------------------------------------------
-
-	import type { ShopCategory } from '$lib/boilerplate/libraries/xioni-shop/categories.types'
-
-	// --- [ Props ] ---------------------------------------------------------------------------------
-
-	export let data
-
-	$: categories = data.categories as ShopCategory[]
+	const { categories } = $$props.data
 </script>
 
 <Client browser>

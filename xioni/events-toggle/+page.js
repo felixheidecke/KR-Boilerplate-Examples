@@ -1,17 +1,15 @@
-import XioniEvents from '$lib/boilerplate/libraries/xioni/events'
-import { error } from '@sveltejs/kit'
+import Events from '$lib/boilerplate/libraries/xioni/events'
+import { error as svelteError } from '@sveltejs/kit'
 
 export const load = async ({ fetch }) => {
-	const { getEvents } = XioniEvents(fetch)
-	const { data, success } = await getEvents(1289, {
-		endsAfter: new Date()
-	})
+	const { getEvents } = Events(fetch)
+	const [error, events] = await getEvents(1289, { endsAfter: new Date() })
 
-	if (!success) {
-		throw error(data.statusCode, data.message)
+	if (error) {
+		throw svelteError(error.statusCode, error.message)
 	}
 
 	return {
-		events: data
+		events
 	}
 }
