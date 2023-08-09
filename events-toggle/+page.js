@@ -1,5 +1,5 @@
-import xioniEventsFactory from '$lib/boilerplate/libraries/xioni-cms/events'
-import xioniLoadHandler from '$lib/boilerplate/utils/xioni-load-handler'
+import xioniEventsFactory from '$lib/xioni/cms/events'
+import xioniLoadHandler from '$lib/xioni/utils/load-handler'
 
 export const load = async ({ fetch }) => {
 	const { getEvents } = xioniEventsFactory(fetch)

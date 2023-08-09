@@ -1,7 +1,3 @@
-<script>
-	import Message from '$lib/boilerplate/components/Message/Message.svelte'
-</script>
-
 <h1>Formular</h1>
 
 <Form subject="Kundenanfrage" to="4" attach="csv">

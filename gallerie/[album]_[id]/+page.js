@@ -1,5 +1,5 @@
-import { getAlbum } from '$lib/boilerplate/libraries/xioni-cms/galleries'
-import xioniLoadHandler from '$lib/boilerplate/utils/xioni-load-handler'
+import { getAlbum } from '$lib/xioni/cms/galleries'
+import xioniLoadHandler from '$lib/xioni/utils/load-handler'
 
 export const prerender = false
 
