@@ -17,21 +17,27 @@
 	const product: ShopProduct | undefined = data.product
 	const module: number = data.module
 
-	let cartErrors: any
+	let cartError: any
 
 	async function addToCart(id: number) {
 		const { addItem } = ShopCart(module)
-		const { success, data } = await addItem(id)
+		const [error, cart] = await addItem(id)
 
-		if (success) {
-			CART.set(data)
-		} else {
-			cartErrors = data.payload
+		if (error) {
+			cartError = error
+			return false
 		}
+
+		CART.set(cart)
+		return true
 	}
 </script>
 
 <Client browser>
+	{#if cartError}
+		<pre>{JSON.stringify(cartError, null, 2)}</pre>
+	{/if}
+
 	{#if product}
 		<XioniShopProduct {product} on:addToCart={({ detail: id }) => addToCart(id)} />
 

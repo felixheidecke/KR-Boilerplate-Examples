@@ -7,9 +7,7 @@
 <Client browser>
 	<ol class="$flex $flex-column $gap">
 		{#each events as event}
-			<XioniEventTile tag="li" {event} basePath="/xioni/events/" />
+			<XioniEventTile tag="li" {event} basePath="/events/" />
 		{/each}
 	</ol>
 </Client>
-
-<!-- Dokumentation: https://ogy.de/a1y1 -->

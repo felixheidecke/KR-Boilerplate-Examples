@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { CART } from './stores'
+	import { onMount } from 'svelte'
 
 	// --- [ Components ] ----------------------------------------------------------------------------
 
@@ -7,8 +8,29 @@
 	import Link from '$lib/boilerplate/components/Link/Link.svelte'
 	import Grid from '$lib/boilerplate/components/Grid/Grid.svelte'
 	import Button from '$lib/boilerplate/components/Button/Button.svelte'
+	import ShopCart from '$lib/boilerplate/libraries/xioni-shop/cart'
 
-	const { categories } = $$props.data
+	// --- [ Types ] ---------------------------------------------------------------------------------
+
+	import type { XioniFetchErrorResponse } from '$lib/boilerplate/libraries/xioni-fetch/types'
+
+	// -----------------------------------------------------------------------------------------------
+
+	const { categories, module } = $$props.data
+
+	let cartError = null as null | XioniFetchErrorResponse
+
+	onMount(async () => {
+		const { getCart } = ShopCart(module)
+		const [error, cart] = await getCart()
+
+		if (error) {
+			cartError = error
+			return
+		}
+
+		CART.set(cart)
+	})
 </script>
 
 <Client browser>
@@ -17,6 +39,10 @@
 			<slot />
 		</Grid>
 		<Grid size="1-4">
+			{#if cartError}
+				<pre>{JSON.stringify(cartError, null, 2)}</pre>
+			{/if}
+
 			<div>
 				<h3>Warenkorb:</h3>
 				<ul class="$mt $font-small">

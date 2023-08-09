@@ -5,5 +5,5 @@
 <h1>Gallerie</h1>
 
 <Client browser>
-	<XioniGallery {gallery} basePath="/xioni/gallerie/" />
+	<XioniGallery {gallery} basePath="/gallerie/" />
 </Client>

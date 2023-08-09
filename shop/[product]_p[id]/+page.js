@@ -1,14 +1,10 @@
 import MakeShopProducts from '$lib/boilerplate/libraries/xioni-shop/products'
-import { error as svelteError } from '@sveltejs/kit'
+import xioniLoadHandler from '$lib/boilerplate/utils/xioni-load-handler'
 
 export const load = async function ({ params, fetch, parent }) {
 	const { module } = await parent()
 	const { getProduct } = MakeShopProducts(module, fetch)
-	const [error, product] = await getProduct(params.id)
-
-	if (error) {
-		throw svelteError(error.statusCode, error.message)
-	}
+	const product = await xioniLoadHandler(getProduct(params.id))
 
 	return {
 		product
