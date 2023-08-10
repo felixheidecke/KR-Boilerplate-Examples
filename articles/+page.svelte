@@ -4,8 +4,10 @@
 
 <h1>Artikel</h1>
 
-<ol class="$flex $flex-column $gap">
-	{#each articles as article}
-		<XioniArticleTile tag="li" {article} basePath="/articles/" />
-	{/each}
-</ol>
+<Client browser>
+	<ol class="$flex $flex-column $gap">
+		{#each articles as article}
+			<XioniArticleTile tag="li" {article} basePath="/articles/" />
+		{/each}
+	</ol>
+</Client>

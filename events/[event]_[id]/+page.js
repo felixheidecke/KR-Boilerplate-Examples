@@ -1,5 +1,5 @@
-import { getEvent } from '$lib/xioni/cms/events'
-import xioniLoadHandler from '$lib/xioni/utils/load-handler'
+import { getEvent } from '$lib/xioni-api/cms/events.api'
+import xioniLoadHandler from '$lib/xioni-api/utils/load-handler'
 
 export const prerender = false
 

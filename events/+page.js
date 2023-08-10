@@ -1,5 +1,5 @@
-import { getEvents } from '$lib/xioni/cms/events'
-import xioniLoadHandler from '$lib/xioni/utils/load-handler'
+import { getEvents } from '$lib/xioni-api/cms/events.api'
+import xioniLoadHandler from '$lib/xioni-api/utils/load-handler'
 
 export const load = async () => {
 	const events = await xioniLoadHandler(getEvents(1289, { endsAfter: new Date() }))

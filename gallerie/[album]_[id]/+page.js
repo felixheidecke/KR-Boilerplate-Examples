@@ -1,5 +1,5 @@
-import { getAlbum } from '$lib/xioni/cms/galleries'
-import xioniLoadHandler from '$lib/xioni/utils/load-handler'
+import { getAlbum } from '$lib/xioni-api/cms/galleries.api'
+import xioniLoadHandler from '$lib/xioni-api/utils/load-handler'
 
 export const prerender = false
 

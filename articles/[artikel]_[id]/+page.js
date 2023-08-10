@@ -1,5 +1,5 @@
-import { getArticle } from '$lib/xioni/cms/articles'
-import xioniLoadHandler from '$lib/xioni/utils/load-handler'
+import { getArticle } from '$lib/xioni-api/cms/articles.api'
+import xioniLoadHandler from '$lib/xioni-api/utils/load-handler'
 
 export const prerender = false
 
