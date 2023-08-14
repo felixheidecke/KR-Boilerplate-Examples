@@ -1,18 +1,15 @@
 <script>
-	import { writable } from 'svelte/store'
-	import { setContext } from 'svelte'
+	const { event } = $$props.data
+	let registration = null
 
-	const event = {
-		...$$props.data.event,
-		website: null // Event ohne Website
+	function handleEventClick({ detail }) {
+		if (detail === 'registration') registration.open()
 	}
-
-	setContext('active-xioni-event', writable(null))
 </script>
 
-<XioniEvent class="$mt-2" {event} />
+<XioniEvent class="$mt-2" {event} on:click={handleEventClick} />
 
-<XioniEventRegistration formId={4}>
+<XioniEventRegistration bind:this={registration} formId={4} {event}>
 	<Input name="Name" label="Name" placeholder="Vor- und Nachname" class="$mt" required />
 	<Textarea name="Anschrift" label="Anschrift" class="$mt" required />
 	<Input name="Telefon" label="Telefonnummer" class="$mt" required />

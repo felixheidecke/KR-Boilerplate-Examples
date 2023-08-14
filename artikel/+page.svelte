@@ -6,6 +6,6 @@
 
 <ol class="$flex $flex-column $gap">
 	{#each articles as article}
-		<XioniArticleTile tag="li" {article} basePath="/xioni/artikel/" />
+		<XioniArticleTile tag="li" {article} basePath="/artikel/" />
 	{/each}
 </ol>

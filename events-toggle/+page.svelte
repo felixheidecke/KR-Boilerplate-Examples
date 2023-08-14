@@ -1,6 +1,4 @@
 <script>
-	import '$lib/boilerplate/components/XioniEventTile/XioniEventTile.scss'
-
 	const { events } = $$props.data
 
 	let expandedElement = null
@@ -11,49 +9,45 @@
 <Client browser>
 	<ol class="$flex $flex-column $gap">
 		{#each events as event}
-			<li class="XioniEventTile">
+			<li>
 				{#if event.image}
-					<img
-						class="XioniEventTile__image"
-						src={event.image.thumbSrc}
-						alt={event.image.alt}
-						loading="lazy" />
+					<img src={event.image.thumbSrc} alt={event.image.alt} loading="lazy" />
 				{/if}
 
-				<h2 class="XioniEventTile__title">
+				<h2>
 					{event.title}
 				</h2>
-
-				<h3 class="XioniEventTile__date">
+				<h3>
 					{event.duration}
 				</h3>
 
 				{#if event.description}
-					<div class="XioniEventTile__description">
-						{@html event.description}
-					</div>
+					{@html event.description}
 				{/if}
 
 				{#if expandedElement === event.id}
 					{#if event.details}
-						<div class="XioniEventTile__details">
-							{@html event.details}
-						</div>
+						{@html event.details}
 					{/if}
 
-					<div class="XioniEventTile__metadata">
+					<ul class="$flex $gap">
 						{#if event.ticketshop}
-							<Link to={event.ticketshop.toString()} icon="fas fa-ticket-alt">Zum Ticketshop</Link>
+							<li>
+								<Link to={event.ticketshop.toString()} icon="fas fa-ticket-alt"
+									>Zum Ticketshop</Link>
+							</li>
 						{/if}
-
 						{#if event.website}
-							<Link to={event.website.toString()} icon="fas fa-globe" />
+							<li>
+								<Link to={event.website.toString()} icon="fas fa-globe" />
+							</li>
 						{/if}
-
 						{#if event.pdf}
-							<Link to={event.pdf.src} icon="fas fa-file-pdf">{event.pdf.title}</Link>
+							<li>
+								<Link to={event.pdf.src} icon="fas fa-file-pdf">{event.pdf.title}</Link>
+							</li>
 						{/if}
-					</div>
+					</ul>
 
 					{#if event.images}
 						<Grid gap class="$mt">
