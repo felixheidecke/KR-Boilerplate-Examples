@@ -20,6 +20,7 @@
 
 		<Button class="customer-form-submit">Abschicken</Button>
 	</div>
+	<div slot="done">Vielen dank für Ihre Kundenanfrage.</div>
 </Form>
 
 <style lang="scss">

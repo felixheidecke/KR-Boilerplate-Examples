@@ -8,7 +8,5 @@ export const load = async () => {
 		throw svelteError(error.statusCode, error.message)
 	}
 
-	return {
-		menuCard
-	}
+	return { menuCard }
 }

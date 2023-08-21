@@ -1,3 +1,7 @@
+<script>
+	import Button from '$lib/boilerplate/components/Button/Button.svelte'
+</script>
+
 <h1>Button</h1>
 
 <ul>

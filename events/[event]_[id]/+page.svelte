@@ -1,4 +1,6 @@
 <script>
+	import stammdaten from '$lib/stammdaten'
+
 	const { event } = $$props.data
 	let registration = null
 
@@ -22,7 +24,9 @@
 		class="$mt"
 		required />
 	<div slot="done">
+		<hr />
 		<p>Vielen Dank für Ihre Anmeldung.</p>
+		<p>Grüße von {stammdaten.name}</p>
 	</div>
 </XioniEventRegistration>
 
