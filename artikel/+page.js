@@ -1,12 +1,6 @@
 import { getArticles } from '$lib/boilerplate/libraries/xioni/articles'
-import { error as svelteError } from '@sveltejs/kit'
+import xioniLoader from '$lib/boilerplate/utils/xioni-loader'
 
-export const load = async () => {
-	const [error, articles] = await getArticles(1383, { parts: ['content'] })
-
-	if (error) {
-		throw svelteError(error.statusCode, error.message)
-	}
-
-	return { articles }
-}
+export const load = async () => ({
+	articles: await xioniLoader(getArticles(1383, { parts: ['content'] }))
+})

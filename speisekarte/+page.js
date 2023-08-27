@@ -1,12 +1,6 @@
 import { getMenuCard } from '$lib/boilerplate/libraries/xioni/menuCards'
-import { error as svelteError } from '@sveltejs/kit'
+import xioniLoader from '$lib/boilerplate/utils/xioni-loader'
 
-export const load = async () => {
-	const [error, menuCard] = await getMenuCard(1540)
-
-	if (error) {
-		throw svelteError(error.statusCode, error.message)
-	}
-
-	return { menuCard }
-}
+export const load = async () => ({
+	menuCard: await xioniLoader(getMenuCard(1540))
+})

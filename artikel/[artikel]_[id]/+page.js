@@ -1,14 +1,8 @@
 import { getArticle } from '$lib/boilerplate/libraries/xioni/articles'
-import { error as svelteError } from '@sveltejs/kit'
+import xioniLoader from '$lib/boilerplate/utils/xioni-loader'
 
-export const load = async ({ params }) => {
-	const [error, article] = await getArticle(params.id)
-
-	if (error) {
-		throw svelteError(error.statusCode, error.message)
-	}
-
-	return { article }
-}
+export const load = async ({ params }) => ({
+	article: await xioniLoader(getArticle(params.id))
+})
 
 export const prerender = false

@@ -1,4 +1,6 @@
 <script>
+	import { page } from '$app/stores'
+
 	const { events } = $$props.data
 </script>
 
@@ -7,7 +9,7 @@
 <Client browser>
 	<ol class="$flex $flex-column $gap">
 		{#each events as event}
-			<XioniEventTile tag="li" {event} basePath="/events/" />
+			<XioniEventTile tag="li" {event} basePath="{$page.url.pathname}/" />
 		{/each}
 	</ol>
 </Client>

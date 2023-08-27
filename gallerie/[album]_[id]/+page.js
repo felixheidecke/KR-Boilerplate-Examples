@@ -1,16 +1,8 @@
 import { getAlbum } from '$lib/boilerplate/libraries/xioni/galleries'
-import { error as svelteError } from '@sveltejs/kit'
+import xioniLoader from '$lib/boilerplate/utils/xioni-loader'
 
-export const load = async ({ params, fetch }) => {
-	const [error, album] = await getAlbum(params.id)
-
-	if (error) {
-		throw svelteError(error.statusCode, error.message)
-	}
-
-	return {
-		album
-	}
-}
+export const load = async ({ params }) => ({
+	album: await xioniLoader(getAlbum(params.id))
+})
 
 export const prerender = false

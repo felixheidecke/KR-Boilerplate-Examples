@@ -1,14 +1,8 @@
 import { getEvent } from '$lib/boilerplate/libraries/xioni/events'
-import { error as svelteError } from '@sveltejs/kit'
+import xioniLoader from '$lib/boilerplate/utils/xioni-loader'
 
-export const load = async ({ params }) => {
-	const [error, event] = await getEvent(params.id)
-
-	if (error) {
-		throw svelteError(error.statusCode, error.message)
-	}
-
-	return { event }
-}
+export const load = async ({ params }) => ({
+	event: await xioniLoader(getEvent(params.id))
+})
 
 export const prerender = false
