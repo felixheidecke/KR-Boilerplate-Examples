@@ -1,5 +1,21 @@
 <h1>Picture</h1>
 
+<!--
+  Display different images based on viewport width
+
+  [ PROPERTIES ]
+  src          {string} *
+  tablet       {string}
+  desktop      {string}
+  widescreen   {string}
+  width        {number|string} 
+  height       {number|string}
+  align        {'left'|'right'}
+  alt          {string}
+  loading      {'eager'|'lazy'}
+  placeholder  {string}
+-->
+
 <p>
 	<Picture
 		width="300"
