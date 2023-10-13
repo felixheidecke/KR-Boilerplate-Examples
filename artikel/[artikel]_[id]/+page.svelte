@@ -2,9 +2,7 @@
 	const { article } = $$props.data
 </script>
 
-<Container>
-	<XioniArticle {article} />
-</Container>
+<XioniArticle {article} />
 
 <hr />
 

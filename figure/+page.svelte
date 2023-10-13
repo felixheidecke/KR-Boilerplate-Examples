@@ -1,15 +1,4 @@
-<!--
-  Display an image width a text caption
-
-  [ PROPERTIES ]
-  src          {string} *
-  alt          {string}
-  width        {number|string} 
-  height       {number|string}
-  caption      {string}
-  loading      {'eager'|'lazy'}
-  placeholder  {string}
--->
+<h1>Figure</h1>
 
 <Figure
 	src="https://picsum.photos/id/182/1600/1200"

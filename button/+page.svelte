@@ -12,7 +12,7 @@
 
 <hr />
 
-<h2 class="$text-center $my-3">ButtonRow</h2>
+<h2 class="$my-3">ButtonRow</h2>
 
 <ButtonRow>
 	<Button>Hallo</Button>

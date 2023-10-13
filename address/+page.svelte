@@ -11,8 +11,6 @@
 	}
 </script>
 
-<Address {...address}>
-	<li>Eine extra Zeile</li>
-</Address>
+<h1>Address</h1>
 
-<Link to="https://ogy.de/9wtv" icon="fab fa-github">Zur Dokumentation</Link>
+<Address {...address} />
