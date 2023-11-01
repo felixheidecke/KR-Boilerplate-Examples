@@ -1,4 +1,4 @@
-import { getArticle } from '$lib/boilerplate/libraries/xioni/articles'
+import { getArticle } from '$lib/boilerplate/libraries/xioni-cms/src/Articles'
 import xioniLoader from '$lib/boilerplate/utils/xioni-loader'
 
 export const load = async ({ params }) => ({
