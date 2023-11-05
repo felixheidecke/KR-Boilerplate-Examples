@@ -1,5 +1,5 @@
-import { getEvent } from '$lib/boilerplate/libraries/xioni-cms/src/Events'
-import xioniLoader from '$lib/boilerplate/utils/xioni-loader'
+import { getEvent } from '$lib/boilerplate/xioni/cms-api/src/Events'
+import xioniLoader from '$lib/boilerplate/xioni/utils/xioniLoader'
 
 export const load = async ({ params }) => ({
 	event: await xioniLoader(getEvent(params.id))

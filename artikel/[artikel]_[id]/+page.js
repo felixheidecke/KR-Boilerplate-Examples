@@ -1,5 +1,5 @@
-import { getArticle } from '$lib/boilerplate/libraries/xioni-cms/src/Articles'
-import xioniLoader from '$lib/boilerplate/utils/xioni-loader'
+import { getArticle } from '$lib/boilerplate/xioni/cms-api/src/Articles'
+import xioniLoader from '$lib/boilerplate/xioni/utils/xioniLoader'
 
 export const load = async ({ params }) => ({
 	article: await xioniLoader(getArticle(params.id))

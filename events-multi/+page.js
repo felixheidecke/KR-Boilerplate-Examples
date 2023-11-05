@@ -1,5 +1,5 @@
-import { getEvents } from '$lib/boilerplate/libraries/xioni-cms/src/Events'
-import xioniLoader from '$lib/boilerplate/utils/xioni-loader'
+import { getEvents } from '$lib/boilerplate/xioni/cms-api/src/Events'
+import xioniLoader from '$lib/boilerplate/xioni/utils/xioniLoader'
 
 export const load = async () => {
 	const [eventsAlpha, eventsBeta] = await Promise.all([
