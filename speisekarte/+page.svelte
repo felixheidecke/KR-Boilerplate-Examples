@@ -5,5 +5,5 @@
 <h1>Speisekarte</h1>
 
 <Client browser>
-	<XioniMenuCard {menuCard} />
+	<useMenuCard {menuCard} />
 </Client>

@@ -1,4 +1,4 @@
-import { getMenuCard } from '$lib/boilerplate/xioni/cms-api/src/MenuCards'
+import { getMenuCard } from '$lib/boilerplate/xioni/cms/src/MenuCards'
 import xioniLoader from '$lib/boilerplate/xioni/utils/xioniLoader'
 
 export const load = async () => ({

@@ -1,4 +1,4 @@
-import { getAlbum } from '$lib/boilerplate/xioni/cms-api/src/Galleries'
+import { getAlbum } from '$lib/boilerplate/xioni/cms/src/Galleries'
 import xioniLoader from '$lib/boilerplate/xioni/utils/xioniLoader'
 
 export const load = async ({ params }) => ({
