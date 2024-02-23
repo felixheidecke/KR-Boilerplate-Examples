@@ -9,7 +9,9 @@
 	}
 </script>
 
-<XioniEvent class="$mt-2" {event} on:click={handleEventClick} />
+<Wrapper>
+	<XioniEvent class="$mt-2" {event} on:click={handleEventClick} />
+</Wrapper>
 
 <XioniEventRegistration bind:this={registration} formId={4} {event}>
 	<Input name="Name" label="Name" placeholder="Vor- und Nachname" class="$mt" required />

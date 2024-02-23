@@ -1,4 +1,6 @@
 <script>
+	import '$lib/styles/website.scss'
+
 	import { afterNavigate, beforeNavigate } from '$app/navigation'
 
 	let isPageLoading = false
