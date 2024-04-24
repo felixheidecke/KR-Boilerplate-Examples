@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores'
+
 	import Client from '$lib/boilerplate/components/Client/Client.svelte'
 	import ArticleTile from '$lib/boilerplate/components/XioniArticleTile/XioniArticleTile.svelte'
 

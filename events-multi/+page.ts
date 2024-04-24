@@ -1,4 +1,4 @@
-import { Xioni } from '$lib/boilerplate/xioni/Xioni.types'
+import { Xioni } from '$lib/boilerplate/xioni/xioni.types'
 import { getEvents } from '$lib/boilerplate/xioni/cms/src/Events'
 import xioniLoader from '$lib/boilerplate/xioni/utils/xioniLoader'
 

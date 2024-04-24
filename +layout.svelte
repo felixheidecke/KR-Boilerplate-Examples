@@ -9,6 +9,14 @@
 	afterNavigate(() => (isPageLoading = false))
 </script>
 
+<ul class="$flex">
+	<li>
+		<Link to="/address">Address</Link>
+		<Link to="/akkordion">Akkordion</Link>
+		<Link to="/artikel">Artikel</Link>
+	</li>
+</ul>
+
 <div class="load-cover" class:load-cover--hidden={!isPageLoading} aria-hidden>
 	<div class="$absolute-center">
 		<Icon name="fas fa-spinner fa-pulse" size="3" />
