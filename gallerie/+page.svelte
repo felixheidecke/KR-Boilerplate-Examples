@@ -1,9 +1,15 @@
 <script>
-	const { gallery } = $$props.data
+	import { page } from '$app/stores'
+
+	export let data
 </script>
 
 <h1>Gallerie</h1>
 
 <Client browser>
-	<XioniGallery {gallery} basePath="/gallerie/" />
+	{#await data.gallery}
+		<p>Wird geladen...</p>
+	{:then gallery}
+		<XioniGallery {gallery} basePath="{$page.url.pathname}/" />
+	{/await}
 </Client>

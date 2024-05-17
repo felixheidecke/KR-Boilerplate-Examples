@@ -2,8 +2,8 @@
 	import { format } from '$lib/utils/formatDate'
 	import { isWithinInterval } from 'date-fns'
 
-	const periodStartDate = new Date('2023-06-05')
-	const periodEndDate = new Date('2023-08-24 23:59')
+	const periodStartDate = new Date('2024-01-01')
+	const periodEndDate = new Date('2030-12-31 23:59')
 	const isWithinPeriod = isWithinInterval(new Date(), {
 		start: periodStartDate,
 		end: periodEndDate

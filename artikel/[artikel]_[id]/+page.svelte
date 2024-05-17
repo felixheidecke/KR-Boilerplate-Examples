@@ -1,11 +1,11 @@
 <script>
-	const { article } = $$props.data
+	export let data
 </script>
 
-<XioniArticle {article} />
-
-<hr />
-
-<div class="$text-center $my-3">
-	<Link icon="fas fa-reply" to="./">Zurück zur Übersicht</Link>
-</div>
+<Wrapper>
+	<XioniArticle article={data.article} />
+	<hr />
+	<div class="$text-center $my-3">
+		<Link icon="fas fa-reply" to="./">Zurück zur Übersicht</Link>
+	</div>
+</Wrapper>

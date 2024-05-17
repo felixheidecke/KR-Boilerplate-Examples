@@ -1,13 +1,14 @@
 <script>
-	const { events } = $$props.data
+	export let data
 </script>
 
-<h1>Events</h1>
-
-<Client browser>
-	<ol class="$flex $flex-column $gap">
-		{#each events as event}
-			<XioniEventTile tag="li" {event} basePath="/events/" />
-		{/each}
-	</ol>
-</Client>
+<Wrapper>
+	<h1>Events</h1>
+	<Client browser>
+		<ol class="$flex $flex-column $gap">
+			{#each data.events as event}
+				<XioniEventTile tag="li" {event} />
+			{/each}
+		</ol>
+	</Client>
+</Wrapper>

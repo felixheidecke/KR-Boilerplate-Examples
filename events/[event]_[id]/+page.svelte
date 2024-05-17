@@ -1,19 +1,14 @@
 <script>
-	import stammdaten from '$lib/stammdaten'
+	export let data
 
-	const { event } = $$props.data
 	let registration = null
-
-	function handleEventClick({ detail }) {
-		if (detail === 'registration') registration.open()
-	}
 </script>
 
 <Wrapper>
-	<XioniEvent class="$mt-2" {event} on:click={handleEventClick} />
+	<XioniEvent class="$mt-2" event={data.event} on:registrationButtonClick={registration.open} />
 </Wrapper>
 
-<XioniEventRegistration bind:this={registration} formId={4} {event}>
+<XioniEventRegistration bind:this={registration} formId={4} event={data.event}>
 	<Input name="Name" label="Name" placeholder="Vor- und Nachname" class="$mt" required />
 	<Textarea name="Anschrift" label="Anschrift" class="$mt" required />
 	<Input name="Telefon" label="Telefonnummer" class="$mt" required />
@@ -28,7 +23,6 @@
 	<div slot="done">
 		<hr />
 		<p>Vielen Dank für Ihre Anmeldung.</p>
-		<p>Grüße von {stammdaten.name}</p>
 	</div>
 </XioniEventRegistration>
 
