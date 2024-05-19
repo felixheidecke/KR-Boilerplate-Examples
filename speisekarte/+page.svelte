@@ -1,5 +1,7 @@
 <script>
-	const { menuCard } = $$props.data
+	export let data
+
+	const menuCard = data.menuCard
 </script>
 
 <h1>Speisekarte</h1>

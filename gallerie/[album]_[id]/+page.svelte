@@ -1,14 +1,12 @@
 <script>
 	export let data
 
-	$: album = data.album
+	const { title, images } = data.album
 </script>
 
-<!-- <pre>{JSON.stringify(album, null, 2)}</pre> -->
+<h1>{title}</h1>
 
-<h1>{album.title}</h1>
-
-<XioniAlbum images={album.images} />
+<XioniAlbum {images} />
 
 <div class="$text-center">
 	<Link icon="fas fa-reply" to="./">Zurück zur Übersicht</Link>
