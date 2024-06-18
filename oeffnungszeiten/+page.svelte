@@ -1,5 +1,5 @@
 <script>
-	import { format } from '$lib/utils/formatDate'
+	import { format } from '$lib/boilerplate/utils/formatDate'
 	import { isWithinInterval } from 'date-fns'
 
 	const periodStartDate = new Date('2024-01-01')
