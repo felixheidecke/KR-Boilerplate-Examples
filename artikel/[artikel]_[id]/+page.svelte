@@ -2,7 +2,7 @@
 	export let data
 </script>
 
-<Wrapper>
+<Wrapper size="small" responsive>
 	<XioniArticle article={data.article} />
 	<hr />
 	<div class="$text-center $my-3">

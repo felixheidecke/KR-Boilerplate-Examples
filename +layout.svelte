@@ -11,11 +11,11 @@
 
 <ul class="$flex">
 	<li>
-		<Link to="/address">Address</Link>
-		<Link to="/akkordion">Akkordion</Link>
-		<Link to="/artikel">Artikel</Link>
-		<Link to="/button">Button</Link>
-		<Link to="/events">Events</Link>
+		<Link to="/address/">Address</Link>
+		<Link to="/akkordion/">Akkordion</Link>
+		<Link to="/artikel/">Artikel</Link>
+		<Link to="/button/">Button</Link>
+		<Link to="/events/">Events</Link>
 	</li>
 </ul>
 

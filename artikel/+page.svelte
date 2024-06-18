@@ -2,7 +2,7 @@
 	export let data
 </script>
 
-<Wrapper>
+<Wrapper size="small">
 	<h1>Artikel</h1>
 	<Client browser>
 		<ol class="$flex $flex-column $gap">
