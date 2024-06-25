@@ -1,11 +1,15 @@
-<h1>Picture</h1>
-<p>
+<Wrapper>
+	<h1>Picture</h1>
+
+	<!-- Ohne Dimensionsangaben -->
 	<Picture
-		width="300"
-		src="https://picsum.photos/300"
-		caption="Lorem ipsum dolor sit, amet consectetur adipisicing elit."
-		align="left" />
-	Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores eveniet pariatur facere reprehenderit
-	est veniam at commodi nostrum tempore ab quibusdam tenetur, quam eligendi, dicta distinctio quas, in
-	quia cum.
-</p>
+		src="http://cdn.klickrhein.de/boilerplate/placeholder/sweden-small.webp"
+		tablet="http://cdn.klickrhein.de/boilerplate/placeholder/sweden.webp"
+		caption="Schweden ist sehr schön!" />
+
+	<!-- Mit Dimensionsangaben -->
+	<Picture
+		src={['http://cdn.klickrhein.de/boilerplate/placeholder/sweden-small.webp', 620, 413]}
+		tablet={['http://cdn.klickrhein.de/boilerplate/placeholder/sweden.webp', 1024, 576]}
+		caption="Schweden ist sehr schön!" />
+</Wrapper>

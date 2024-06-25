@@ -17,11 +17,11 @@
 					<h3>
 						{event.duration}
 					</h3>
-					{#if event.description}
-						{@html event.description}
+					{#if event.teaser}
+						<p class="$font-bold">{@html event.teaser}</p>
 					{/if}
-					{#if event.details}
-						{@html event.details}
+					{#if event.description}
+						<p>{@html event.description}</p>
 					{/if}
 					<ul class="$flex $gap">
 						{#if event.organizer}

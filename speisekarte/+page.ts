@@ -1,6 +1,10 @@
-import { getMenuCard } from '$lib/boilerplate/xioni/cms/src/MenuCards'
+import useMenuCard from '$lib/boilerplate/xioni/cms/MenuCards'
 import xioniLoader from '$lib/boilerplate/xioni/utils/xioniLoader'
 
-export const load = async () => ({
-	menuCard: await xioniLoader(getMenuCard(1540))
-})
+export const load = async ({ fetch }) => {
+	const { getMenuCard } = useMenuCard(fetch)
+
+	return {
+		menuCard: await xioniLoader(getMenuCard(1540))
+	}
+}

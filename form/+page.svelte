@@ -1,6 +1,6 @@
 <h1>Formular</h1>
 
-<Form subject="Kundenanfrage" id="4" attach="csv">
+<Form subject="Kundenanfrage" to="4" attachBodyAsCSV>
 	<div class="customer-form-body">
 		<Input name="fistname" label="Vorname" placeholder="Max" />
 		<Input name="lastname" label="Nachname" placeholder="Mustermann" required />
