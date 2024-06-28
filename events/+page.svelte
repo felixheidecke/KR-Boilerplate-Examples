@@ -9,7 +9,7 @@
 <Client browser>
 	<ol class="$flex $flex-column $gap">
 		{#each events as event}
-			<XioniEventTile tag="li" {event} basePath="{$page.url.pathname}/" />
+			<XioniEventTile tag="li" {event} basePath={$page.url.pathname} />
 		{/each}
 	</ol>
 </Client>

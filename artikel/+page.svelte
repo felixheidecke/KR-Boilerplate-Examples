@@ -9,7 +9,7 @@
 <Client browser>
 	<ol class="$flex $flex-column $gap">
 		{#each articles as article}
-			<XioniArticleTile tag="li" {article} basePath="{$page.url.pathname}/" />
+			<XioniArticleTile tag="li" {article} basePath={$page.url.pathname} />
 		{/each}
 	</ol>
 </Client>
