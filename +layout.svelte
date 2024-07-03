@@ -1,5 +1,5 @@
 <script>
-	import '$lib/styles/website.scss'
+	import '$lib/styles/styles.scss'
 
 	import { afterNavigate, beforeNavigate } from '$app/navigation'
 

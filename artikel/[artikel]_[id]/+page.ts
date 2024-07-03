@@ -3,9 +3,9 @@ import xioniLoader from '$lib/boilerplate/xioni/utils/xioniLoader'
 
 export const prerender = false
 export const load = async function ({ fetch, params }) {
-	const getArticle = useArticles().getArticle(1383, +params.id)
+	const { getArticle } = useArticles(fetch)
 
 	return {
-		article: await xioniLoader(getArticle)
+		article: await xioniLoader(getArticle(1383, +params.id))
 	}
 }

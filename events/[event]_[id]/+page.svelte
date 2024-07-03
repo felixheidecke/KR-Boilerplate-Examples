@@ -27,5 +27,5 @@
 </XioniEventRegistration>
 
 <div class="$text-center $mt-2">
-	<Link icon="fas fa-reply" to="./">Zurück zur Übersicht</Link>
+	<Link icon="fas fa-reply" to="../">Zurück zur Übersicht</Link>
 </div>
