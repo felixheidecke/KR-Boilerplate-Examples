@@ -1,4 +1,6 @@
 <script>
+	import toFaIcon from '$lib/boilerplate/utils/toFaIcon.ts'
+
 	export let data
 
 	let expandedElement = null
@@ -27,22 +29,17 @@
 							<p>{@html event.description}</p>
 						{/if}
 						<ul class="$flex $gap">
-							{#if event.ticketshop}
+							{#if event.organizer}
 								<li>
-									<Link to={event.ticketshop.toString()} icon="fas fa-ticket-alt"
-										>Zum Ticketshop</Link>
+									<Icon name="fas fa-user-circle" />
+									{event.organizer}
 								</li>
 							{/if}
-							{#if event.website}
+							{#each event.links as link}
 								<li>
-									<Link to={event.website.toString()} icon="fas fa-globe" />
+									<Link to={link.url} icon={toFaIcon(link.type)}>{link.title}</Link>
 								</li>
-							{/if}
-							{#if event.pdf}
-								<li>
-									<Link to={event.pdf.src} icon="fas fa-file-pdf">{event.pdf.title}</Link>
-								</li>
-							{/if}
+							{/each}
 						</ul>
 						{#if event.images}
 							<Grid gap class="$mt">
