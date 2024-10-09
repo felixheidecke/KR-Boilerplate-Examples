@@ -1,6 +1,4 @@
 <script>
-	import toFaIcon from '$lib/boilerplate/utils/toFaIcon.ts'
-
 	export let data
 
 	let expandedElement = null
@@ -37,7 +35,7 @@
 							{/if}
 							{#each event.links as link}
 								<li>
-									<Link to={link.url} icon={toFaIcon(link.type)}>{link.title}</Link>
+									<Link to={link.url}>{link.title}</Link>
 								</li>
 							{/each}
 						</ul>

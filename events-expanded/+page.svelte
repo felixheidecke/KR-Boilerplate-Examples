@@ -1,7 +1,7 @@
 <script>
-	import toFaIcon from '$lib/boilerplate/utils/toFaIcon.ts'
-
 	export let data
+
+	console.log('data', data.events)
 </script>
 
 <Wrapper>
@@ -11,7 +11,7 @@
 			{#each data.events as event}
 				<li>
 					{#if event.image}
-						<img src={event.image.thumbSrc} alt={event.image.alt} loading="lazy" />
+						<img src={event.image.src} alt={event.image.description} loading="lazy" />
 					{/if}
 					<h2>
 						{event.title}
@@ -25,19 +25,31 @@
 					{#if event.description}
 						<p>{@html event.description}</p>
 					{/if}
-					<ul class="$flex $gap">
-						{#if event.organizer}
-							<li>
-								<Icon name="fas fa-user-circle" />
-								{event.organizer}
-							</li>
+					{#if event.organizer}
+						<p>
+							<Icon name="fas fa-user-circle" />
+							{event.organizer}
+						</p>
+					{/if}
+					<ButtonRow>
+						{#if event.ticketshop}
+							<Button
+								to={event.ticketshop.toString()}
+								on:click={() => emit('ticketshopButtonClick')}
+								icon="fas fa-ticket-alt">Zum Ticketshop</Button>
 						{/if}
-						{#each event.links as link}
-							<li>
-								<Link to={link.url} icon={toFaIcon(link.type)}>{link.title}</Link>
-							</li>
-						{/each}
-					</ul>
+
+						{#if event.website}
+							<Button
+								icon="fas fa-globe"
+								on:click={() => emit('click', 'website')}
+								to={event.website.toString()}>{event.website.hostname}</Button>
+						{/if}
+
+						{#if event.pdf}
+							<Button icon="fas fa-file-pdf" to={event.pdf.src}>{event.pdf.title}</Button>
+						{/if}
+					</ButtonRow>
 					{#if event.images}
 						<Grid gap class="$mt">
 							{#each event.images as { src, alt }}
