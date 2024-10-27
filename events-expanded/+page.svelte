@@ -1,7 +1,5 @@
 <script>
 	export let data
-
-	console.log('data', data.events)
 </script>
 
 <Wrapper>
