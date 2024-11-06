@@ -2,7 +2,7 @@ import useEvents from '$lib/boilerplate/xioni/cms/Events'
 import xioniLoader from '$lib/boilerplate/xioni/utils/xioniLoader'
 
 export const prerender = false
-export const load = async function ({ fetch, params }) {
+export const load = async function ({ params }) {
 	const { getEvent } = useEvents()
 
 	return {
