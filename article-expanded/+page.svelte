@@ -1,5 +1,4 @@
 <script>
-	import '$lib/boilerplate/components/XioniArticle/XioniArticle.scss'
 	import stammdaten from '$stammdaten'
 
 	export let data
@@ -7,35 +6,31 @@
 
 <h1>Artikel</h1>
 
-<Wrapper tag="ul" size="small" responsive>
+<Wrapper tag="ol" size="small" class="$flex $flex-column $gap-3">
 	{#each data.articles as { author, date, content, image, pdf, teaser, title, website }}
-		<li>
+		<li class="article">
 			{#if image}
-				<Figure baseName="XioniArticleImage" src={image.src} caption={image.description} />
+				<Figure baseName="article-figure" src={image.src} caption={image.description} />
 			{/if}
 
-			<h1 class="XioniArticle__title">
+			<h1 class="article-title">
 				{title}
 			</h1>
 
 			{#if author || date}
-				<XioniArticleMeta {author} {date} />
+				<XioniArticleMeta baseName="article-meta" {author} {date} />
 			{/if}
 
-			<p class="XioniArticle__teaser">
+			<p>
 				{@html teaser}
 			</p>
 
-			{#if content?.length}
-				<div class="XioniArticle__content">
-					{#each content as { text, title, image }}
-						<XioniArticleContent {text} {title} {image} />
-					{/each}
-				</div>
-			{/if}
+			{#each content || [] as { text, title, image }}
+				<XioniArticleContent baseName="article-content" {text} {title} {image} />
+			{/each}
 
 			{#if pdf || website}
-				<XioniArticleButtons {pdf} {website} />
+				<XioniArticleButtons baseName="article-buttons" {pdf} {website} />
 			{/if}
 		</li>
 	{/each}

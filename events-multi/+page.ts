@@ -1,17 +1,17 @@
-import { sortBy } from 'lodash-es'
-import useEvents from '$lib/boilerplate/xioni/cms/Events'
+import { flatten, sortBy } from 'lodash-es'
+import { getEvents } from '$lib/boilerplate/xioni/cms/Events'
 import xioniLoader from '$lib/boilerplate/xioni/utils/xioniLoader'
 
+const endsAfter = new Date()
+const limit = 5
+
 export const load = async () => {
-	const endsAfter = new Date()
-	const limit = 5
-	const { getEvents } = useEvents()
-	const [eventsAlpha, eventsBeta] = await Promise.all([
+	const events = await Promise.all([
 		xioniLoader(getEvents(1289, { endsAfter, limit })),
 		xioniLoader(getEvents(1500, { endsAfter, limit }))
 	])
 
 	return {
-		events: sortBy([...eventsAlpha, ...eventsBeta], 'starts')
+		events: sortBy(flatten(events), 'starts')
 	}
 }
