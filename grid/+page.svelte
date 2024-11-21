@@ -1,20 +1,28 @@
-<Grid gap>
-	<Grid size="tablet-1-2 desktop-1-3">
-		<div>Frank</div>
+<h1>Grid</h1>
+{#each [0, 2, 4, 6, 8] as gap}
+	<hr />
+
+	<p>
+		<strong class="h3">Gap {gap}</strong>
+	</p>
+	<Grid {gap}>
+		<Grid size="tablet-1-2 desktop-1-3">
+			<div style="background-color:brown">Frank</div>
+		</Grid>
+		<Grid size="tablet-1-2 desktop-2-3">
+			<div style="background-color:blueviolet">Felix</div>
+		</Grid>
+		<Grid size="tablet-1-3">
+			<div style="background-color:darkblue">Peter</div>
+		</Grid>
+		<Grid size="tablet-1-3">
+			<div style="background-color:tomato">Susi</div>
+		</Grid>
+		<Grid size="tablet-1-3">
+			<div style="background-color:black">Uwe</div>
+		</Grid>
 	</Grid>
-	<Grid size="tablet-1-2 desktop-2-3">
-		<div>Felix</div>
-	</Grid>
-	<Grid size="tablet-1-3">
-		<div>Peter</div>
-	</Grid>
-	<Grid size="tablet-1-3">
-		<div>Susi</div>
-	</Grid>
-	<Grid size="tablet-1-3">
-		<div>Uwe</div>
-	</Grid>
-</Grid>
+{/each}
 
 <style lang="scss">
 	div {
@@ -22,6 +30,6 @@
 		font-weight: bold;
 		padding: 1rem;
 		text-align: center;
-		border: 1px solid;
+		color: white;
 	}
 </style>
