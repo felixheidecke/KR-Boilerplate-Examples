@@ -1,7 +1,7 @@
 <script>
 	export let data
 
-	const gallery = data.gallery
+	const gallery = data.gallery.filter(album => album.images.length)
 </script>
 
 <h1>Gallerie</h1>

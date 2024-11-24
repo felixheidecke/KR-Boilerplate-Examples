@@ -5,10 +5,17 @@
 <Wrapper>
 	<h1>Events</h1>
 	<Client browser>
-		<ol class="$flex $flex-column $gap">
-			{#each data.events as event}
-				<XioniEventTile tag="li" {event} />
-			{/each}
-		</ol>
+		{#if data.events.length}
+			<ol class="$flex $flex-column $gap">
+				{#each data.events as event}
+					<XioniEventTile tag="li" {event} />
+				{/each}
+			</ol>
+		{:else}
+			<p>
+				<i class="fontello-attention" />
+				Zur Zeit sind keine Veranstaltungen geplant.
+			</p>
+		{/if}
 	</Client>
 </Wrapper>

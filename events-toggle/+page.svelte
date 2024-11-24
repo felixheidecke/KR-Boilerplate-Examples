@@ -2,66 +2,77 @@
 	export let data
 
 	let expandedElement = null
+
+	$: console.log(data.events)
 </script>
 
 <Wrapper>
 	<h1>Events <i>(Toggle)</i></h1>
 	<Client browser>
-		<ol class="$flex $flex-column $gap">
-			{#each data.events as event}
-				<li>
-					{#if event.image}
-						<img src={event.image.thumbSrc} alt={event.image.alt} loading="lazy" />
-					{/if}
-					<h2>
-						{event.title}
-					</h2>
-					<h3>
-						{event.duration}
-					</h3>
-					{#if event.teaser}
-						<p>{@html event.teaser}</p>
-					{/if}
-					{#if expandedElement === event.id}
-						{#if event.description}
-							<p>{@html event.description}</p>
+		{#if data.events.length}
+			<ol class="$flex $flex-column $gap">
+				{#each data.events as event}
+					<li>
+						{#if event.image}
+							<img src={event.image.thumbSrc} alt={event.image.alt} loading="lazy" />
 						{/if}
-						<ul class="$flex $gap">
-							{#if event.organizer}
-								<li>
-									<Icon name="fas fa-user-circle" />
-									{event.organizer}
-								</li>
+						<h2>
+							{event.title}
+						</h2>
+						<h3>
+							{event.duration}
+						</h3>
+						{#if event.teaser}
+							<p>{@html event.teaser}</p>
+						{/if}
+						{#if expandedElement === event.id}
+							{#if event.description}
+								<p>{@html event.description}</p>
 							{/if}
-							{#each event.links as link}
-								<li>
-									<Link to={link.url}>{link.title}</Link>
-								</li>
-							{/each}
-						</ul>
-						{#if event.images}
-							<Grid gap class="$mt">
-								{#each event.images as { src, alt }}
-									<Grid size="tablet-1-5">
-										<img {src} {alt} loading="lazy" />
-									</Grid>
-								{/each}
-							</Grid>
+							<ul class="$flex $gap">
+								{#if event.organizer}
+									<li>
+										<Fontello name="user" />
+										{event.organizer}
+									</li>
+								{/if}
+								{#if event.pdf}
+									<li>
+										<Link to={event.pdf.src} fontello="file-pdf">
+											{event.pdf.title}
+										</Link>
+									</li>
+								{/if}
+							</ul>
+							{#if event.images}
+								<Grid gap class="$mt">
+									{#each event.images as { src, alt }}
+										<Grid size="tablet-1-5">
+											<img {src} {alt} loading="lazy" />
+										</Grid>
+									{/each}
+								</Grid>
+							{/if}
+							<Link
+								fontello="angle-up"
+								class="$row-reverse $mt"
+								on:click={() => (expandedElement = null)}>Weniger</Link>
+						{:else}
+							<Link
+								fontello="angle-down"
+								class="$row-reverse"
+								on:click={() => (expandedElement = event.id)}>
+								Mehr erfahren
+							</Link>
 						{/if}
-						<Link
-							icon="fas fa-angle-up"
-							class="$row-reverse $mt"
-							on:click={() => (expandedElement = null)}>Weniger</Link>
-					{:else}
-						<Link
-							icon="fas fa-angle-down"
-							class="$row-reverse"
-							on:click={() => (expandedElement = event.id)}>
-							Mehr erfahren
-						</Link>
-					{/if}
-				</li>
-			{/each}
-		</ol>
+					</li>
+				{/each}
+			</ol>
+		{:else}
+			<p>
+				<Fontello name="attention" />
+				Zur Zeit sind keine Veranstaltungen geplant.
+			</p>
+		{/if}
 	</Client>
 </Wrapper>

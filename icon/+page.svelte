@@ -1,15 +1,13 @@
 <script>
 	import icon from '$lib/boilerplate/actions/icon'
+	import fontello from '$lib/boilerplate/actions/fontello'
 </script>
 
 <h1>Icon</h1>
 
-<Icon name="fas fa-walking" />
-<Icon name="fas fa-walking" size="2" />
-<Icon name="fas fa-walking" size="3" />
-<Icon name="fas fa-walking" size="4" />
+<Fontello name="eye" /> Ich bin ein Icon
 
-<ul class="$mt-2" use:icon={'fas fa-walking'}>
+<ul class="$mt-2" use:fontello={'wine'}>
 	<li>Lorem ipsum</li>
 	<li>Consectetur adipisicing</li>
 	<li>
@@ -19,3 +17,5 @@
 	</li>
 	<li>Dolor sit amet</li>
 </ul>
+
+<h1>Headline</h1>

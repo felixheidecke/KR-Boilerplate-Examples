@@ -5,7 +5,7 @@
 </script>
 
 <Wrapper>
-	<XioniEvent class="$mt-2" event={data.event} on:registrationButtonClick={registration.open} />
+	<XioniEvent class="$my-2" event={data.event} on:registrationButtonClick={registration.open} />
 </Wrapper>
 
 <XioniEventRegistration bind:this={registration} formId={4} event={data.event}>
@@ -27,5 +27,5 @@
 </XioniEventRegistration>
 
 <div class="$text-center $mt-2">
-	<Link icon="fas fa-reply" to="../">Zurück zur Übersicht</Link>
+	<Link fontello="angle-left" to="../">Zurück zur Übersicht</Link>
 </div>

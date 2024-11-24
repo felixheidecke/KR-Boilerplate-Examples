@@ -8,17 +8,17 @@
 
 <Wrapper tag="ol" size="small" class="$flex $flex-column $gap-3">
 	{#each data.articles as { author, date, content, image, pdf, teaser, title, website }}
-		<li class="article">
+		<li>
 			{#if image}
-				<Figure baseName="article-figure" src={image.src} caption={image.description} />
+				<Figure src={image.src} caption={image.description} />
 			{/if}
 
-			<h1 class="article-title">
+			<h2>
 				{title}
-			</h1>
+			</h2>
 
 			{#if author || date}
-				<XioniArticleMeta baseName="article-meta" {author} {date} />
+				<XioniArticleMeta {author} {date} />
 			{/if}
 
 			<p>
@@ -26,11 +26,11 @@
 			</p>
 
 			{#each content || [] as { text, title, image }}
-				<XioniArticleContent baseName="article-content" {text} {title} {image} />
+				<XioniArticleContent {text} {title} {image} />
 			{/each}
 
 			{#if pdf || website}
-				<XioniArticleButtons baseName="article-buttons" {pdf} {website} />
+				<XioniArticleButtons {pdf} {website} />
 			{/if}
 		</li>
 	{/each}

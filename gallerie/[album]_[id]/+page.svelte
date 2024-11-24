@@ -9,5 +9,5 @@
 <XioniAlbum {images} />
 
 <div class="$text-center">
-	<Link icon="fas fa-reply" to="./">Zurück zur Übersicht</Link>
+	<Link fontello="angle-left" to="../">Zurück zur Übersicht</Link>
 </div>
