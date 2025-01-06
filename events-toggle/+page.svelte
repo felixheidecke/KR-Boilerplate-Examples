@@ -2,8 +2,6 @@
 	export let data
 
 	let expandedElement = null
-
-	$: console.log(data.events)
 </script>
 
 <Wrapper>
