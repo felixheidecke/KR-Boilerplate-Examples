@@ -13,7 +13,7 @@
 			</ol>
 		{:else}
 			<p>
-				<i class="fontello-attention" />
+				<Fontello name="attention" />
 				Zur Zeit sind keine Veranstaltungen geplant.
 			</p>
 		{/if}
