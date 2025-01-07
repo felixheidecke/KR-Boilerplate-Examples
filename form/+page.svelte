@@ -1,6 +1,10 @@
+<script>
+	import Form from '$lib/boilerplate/components/Form/Form6.svelte'
+</script>
+
 <h1>Formular</h1>
 
-<Form subject="Kundenanfrage" to="4" attachBodyAsCSV>
+<Form module-id="1594">
 	<div class="customer-form-body">
 		<Input name="fistname" label="Vorname" placeholder="Max" />
 		<Input name="lastname" label="Nachname" placeholder="Mustermann" required />
