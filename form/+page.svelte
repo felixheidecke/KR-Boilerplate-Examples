@@ -1,7 +1,3 @@
-<script>
-	import Form from '$lib/boilerplate/components/Form/Form6.svelte'
-</script>
-
 <h1>Formular</h1>
 
 <Form module-id="1594">
@@ -9,6 +5,7 @@
 		<Input name="fistname" label="Vorname" placeholder="Max" />
 		<Input name="lastname" label="Nachname" placeholder="Mustermann" required />
 		<Input name="street" label="Straße & Hausnummer" />
+		<Input name="email" label="E-Mail" required />
 		<Input name="town" label="PLZ & Ort" />
 
 		<div class="customer-form-voice-wrapper">
