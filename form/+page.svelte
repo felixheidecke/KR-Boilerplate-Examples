@@ -1,6 +1,6 @@
 <h1>Formular</h1>
 
-<Form module-id="1594">
+<Form moduleId="1594">
 	<div class="customer-form-body">
 		<Input name="fistname" label="Vorname" placeholder="Max" />
 		<Input name="lastname" label="Nachname" placeholder="Mustermann" required />
@@ -21,7 +21,10 @@
 
 		<Button class="customer-form-submit">Abschicken</Button>
 	</div>
-	<div slot="done">Vielen dank für Ihre Kundenanfrage.</div>
+	{#snippet done()}
+		<p class="$font-bold">Vielen dank für Ihre Anfrage.</p>
+		<p>Wir werden uns schnellstmöglich bei Ihnen melden.</p>
+	{/snippet}
 </Form>
 
 <style lang="scss">
