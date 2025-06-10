@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	export let data
 </script>
 
@@ -32,17 +32,12 @@
 						{/if}
 						<ButtonRow>
 							{#if event.ticketshop}
-								<Button
-									to={event.ticketshop.toString()}
-									on:click={() => emit('ticketshopButtonClick')}
-									fontello="ticket">Zum Ticketshop</Button>
+								<Button to={event.ticketshop.toString()} fontello="ticket">Zum Ticketshop</Button>
 							{/if}
 
 							{#if event.website}
-								<Button
-									fontello="globe"
-									on:click={() => emit('click', 'website')}
-									to={event.website.toString()}>{event.website.hostname}</Button>
+								<Button fontello="globe" to={event.website.toString()}
+									>{event.website.hostname}</Button>
 							{/if}
 
 							{#if event.pdf}
@@ -51,9 +46,9 @@
 						</ButtonRow>
 						{#if event.images}
 							<Grid gap class="$mt">
-								{#each event.images as { src, alt }}
+								{#each event.images as { src, description }}
 									<Grid size="tablet-1-3 desktop-1-5">
-										<img {src} {alt} loading="lazy" />
+										<img {src} alt={description} loading="lazy" />
 									</Grid>
 								{/each}
 							</Grid>
@@ -63,7 +58,7 @@
 			</ol>
 		{:else}
 			<p>
-				<i class="fontello-attention" />
+				<Fontello name="fontello-attention" />
 				Zur Zeit sind keine Veranstaltungen geplant.
 			</p>
 		{/if}
