@@ -19,6 +19,12 @@
 			options={['Schinken', 'Salami', 'Käse']} />
 		<Textarea label="Ihre Nachricht an uns" name="message" />
 
+		<p class="$font-small">
+			Wie wir mit Ihren Daten umgehen, lesen Sie in unserer <a href="/datenschutz"
+				>Datenschutzerklärung</a
+			>.
+		</p>
+
 		<Button class="customer-form-submit">Abschicken</Button>
 	</div>
 	{#snippet done()}
