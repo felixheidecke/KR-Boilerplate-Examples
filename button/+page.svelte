@@ -1,5 +1,5 @@
-<script>
-	import Button from '$lib/boilerplate/components/Button/Button.svelte'
+<script lang="ts">
+	import { Button, ButtonRow, Wrapper } from '$lib/boilerplate/components'
 </script>
 
 <Wrapper size="smaller">
@@ -7,8 +7,8 @@
 
 	<ul>
 		<li><Button>Hallo</Button></li>
-		<li class="$mt"><Button fontello="youtube-play">YouTube</Button></li>
 		<li class="$mt"><Button fontello="attention-circled" class="$row-reverse">Hinweis</Button></li>
+		<li class="$mt"><Button fontello="youtube-play">YouTube</Button></li>
 	</ul>
 
 	<hr />

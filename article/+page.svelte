@@ -1,16 +1,15 @@
 <script lang="ts">
-	import Client from '$lib/boilerplate/components/Client/Client.svelte'
-	import Wrapper from '$lib/boilerplate/components/Wrapper/Wrapper.svelte'
-	import XioniArticleTile from '$lib/boilerplate/components/XioniArticleTile/XioniArticleTile.svelte'
+	import { Client, Wrapper, XioniArticleTile } from '$lib/boilerplate/components'
 
-	export let data
+	let { data } = $props()
+	let { articles, articlesMeta } = $derived(data)
 </script>
 
 <Wrapper size="small">
-	<h1>Artikel ({data.articlesMeta.totalCount})</h1>
 	<Client browser>
+		<h1>Artikel ({articlesMeta?.totalCount})</h1>
 		<ol class="$flex $flex-column $gap">
-			{#each data.articles as article}
+			{#each articles || [] as article}
 				<XioniArticleTile tag="li" {article} />
 			{/each}
 		</ol>

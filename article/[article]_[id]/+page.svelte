@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
 	import stammdaten from '$stammdaten'
+	import { Link, Wrapper, XioniArticle } from '$lib/boilerplate/components'
 
-	export let data
-
-	const { article } = data
+	let { data } = $props()
+	const { article } = $derived(data)
 </script>
 
 <svelte:head>
