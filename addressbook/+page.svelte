@@ -1,6 +1,5 @@
 <script lang="ts">
-	import AddressbookEntry from '$lib/boilerplate/components/AddressbookEntry'
-	import Client from '$lib/boilerplate/components/Client/Client.svelte'
+	import { AddressbookEntry, Client } from '$lib/boilerplate/components'
 
 	export let data
 </script>
